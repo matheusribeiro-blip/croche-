@@ -594,22 +594,29 @@ startTimer();
 
 // ── Order bump (checkbox) ─────────────────────────────────────────────────────
 function updateSummary() {
-  var checked       = document.getElementById('bump-check').checked;
-  var row           = document.getElementById('bump-row');
-  var total         = document.getElementById('total-value');
-  var btn           = document.getElementById('buy-btn');
-  var btnPrincipal  = document.getElementById('buy-btn-principal');
+  var checked      = document.getElementById('bump-check').checked;
+  var row          = document.getElementById('bump-row');
+  var total        = document.getElementById('total-value');
+  var btn          = document.getElementById('buy-btn');
+  var btnPrincipal = document.getElementById('buy-btn-principal');
+
+  var URL_NORMAL = 'https://pay.kirvano.com/8e9e8886-9fd8-4a60-ab2b-ed7ec310f31d';
+  var URL_COMBO  = 'https://pay.kirvano.com/e5a61869-d87a-4ef4-98bf-b6c7efcaa764';
 
   row.style.display = checked ? 'flex' : 'none';
 
   if (checked) {
-    total.textContent        = 'R$\u00a024,80';
-    btn.textContent          = 'Finalizar — R$\u00a024,80 →';
-    btnPrincipal.textContent = 'Quero começar agora por R$\u00a024,80 →';
+    total.textContent        = 'R$\u00a024,90';
+    btn.textContent          = 'Finalizar — R$\u00a024,90 →';
+    btnPrincipal.textContent = 'Quero começar agora por R$\u00a024,90 →';
+    btn.href                 = URL_COMBO;
+    btnPrincipal.href        = URL_COMBO;
   } else {
     total.textContent        = 'R$\u00a014,90';
     btn.textContent          = 'Finalizar — R$\u00a014,90 →';
     btnPrincipal.textContent = 'Quero começar agora por R$\u00a014,90 →';
+    btn.href                 = URL_NORMAL;
+    btnPrincipal.href        = URL_NORMAL;
   }
 }
 
